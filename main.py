@@ -3,6 +3,7 @@ from Problem24 import Solution as Solution24
 from Problem24 import ListNode
 from Problem33 import Solution as Solution33
 from Problem93 import Solution as Solution93
+from Problem11 import Solution as Solution11
 
 def __problem3():
     solution = Solution3()
@@ -46,7 +47,11 @@ def __problem93():
     result = solution.restoreIpAddresses("101023")
     for ip in result:
         print(ip)
+def __problem11():
+    solution = Solution11()
+    result = solution.maxArea([3,1,2,3])
+    print(result)
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    __problem93()
+    __problem11()
