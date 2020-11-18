@@ -2,6 +2,7 @@ from Problem3 import Solution as Solution3
 from Problem24 import Solution as Solution24
 from Problem24 import ListNode
 from Problem33 import Solution as Solution33
+from Problem93 import Solution as Solution93
 
 def __problem3():
     solution = Solution3()
@@ -40,6 +41,12 @@ def __problem33():
     #result = solution.search([1, 3], 0)
     print("Target is at", result, "position")
 
+def __problem93():
+    solution = Solution93()
+    result = solution.restoreIpAddresses("101023")
+    for ip in result:
+        print(ip)
+
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    __problem33()
+    __problem93()
