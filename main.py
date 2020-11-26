@@ -49,7 +49,7 @@ def __problem93():
         print(ip)
 def __problem11():
     solution = Solution11()
-    result = solution.maxArea([3,1,2,3])
+    result = solution.maxArea([2,4,10,1,9,5]) #expected 18
     print(result)
 
 # Press the green button in the gutter to run the script.
