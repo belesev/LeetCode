@@ -1,4 +1,9 @@
-from typing import List, OrderedDict
+# https://leetcode.com/problems/container-with-most-water/submissions/
+# Given n non-negative integers a1, a2, ..., an , where each represents a point at coordinate (i, ai). n vertical lines
+# are drawn such that the two endpoints of the line i is at (i, ai) and (i, 0).
+# Find two lines, which, together with the x-axis forms a container, such that the container contains the most water.
+
+from typing import List
 
 
 class Solution:
@@ -8,19 +13,13 @@ class Solution:
         right = len(height) - 1
 
         while left < right:
-            candidate = min(height[left+1], height[right]) * (right - left - 1)
+            candidate = min(height[left], height[right]) * (right - left)
             if candidate > result:
                 result = candidate
+
+            if height[left] < height[right]:
                 left += 1
-                continue
-
-            candidate = min(height[left], height[right-1]) * (right - left - 1)
-            if candidate > result:
-                result = candidate
+            else:
                 right -= 1
-                continue
-
-            left += 1
-            right -= 1
 
         return result
