@@ -4,6 +4,7 @@ from Problem24 import ListNode
 from Problem33 import Solution as Solution33
 from Problem93 import Solution as Solution93
 from Problem11 import Solution as Solution11
+from Problem387 import Solution as Solution387
 
 def __problem3():
     solution = Solution3()
@@ -47,11 +48,17 @@ def __problem93():
     result = solution.restoreIpAddresses("101023")
     for ip in result:
         print(ip)
+
 def __problem11():
     solution = Solution11()
     result = solution.maxArea([8,2,6,2,10,2,5,9])
     print(result)
 
+def __problem387():
+    solution = Solution387()
+    result = solution.firstUniqChar("leecodevl")
+    print(result)
+
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    __problem11()
+    __problem387()
