@@ -1,10 +1,11 @@
 from Problem3 import Solution as Solution3
 from Problem24 import Solution as Solution24
-from Problem24 import ListNode
 from Problem33 import Solution as Solution33
 from Problem93 import Solution as Solution93
 from Problem11 import Solution as Solution11
 from Problem387 import Solution as Solution387
+from Problem21 import Solution as Solution21
+from Problem21 import ListNode
 
 def __problem3():
     solution = Solution3()
@@ -59,6 +60,13 @@ def __problem387():
     result = solution.firstUniqChar("leecodevl")
     print(result)
 
+def __problem21():
+    solution = Solution21()
+    result = solution.mergeTwoLists(ListNode(0, ListNode(2, None)), ListNode(0, ListNode(2, ListNode(3, ListNode(6, None)))))
+    while result:
+        print(result.val, " -> ")
+        result = result.next
+
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    __problem387()
+    __problem21()
