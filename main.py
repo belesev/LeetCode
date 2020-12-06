@@ -6,6 +6,8 @@ from Problem11 import Solution as Solution11
 from Problem387 import Solution as Solution387
 from Problem21 import Solution as Solution21
 from Problem21 import ListNode
+from Problem169 import Solution as Solution169
+from Problem121 import Solution as Solution121
 
 def __problem3():
     solution = Solution3()
@@ -67,6 +69,16 @@ def __problem21():
         print(result.val, " -> ")
         result = result.next
 
+def __problem169():
+    solution = Solution169()
+    result = solution.majorityElement([1,2,3,4,1,2,2,2,2])
+    print(result)
+
+def __problem121():
+    solution = Solution121()
+    result = solution.maxProfit([2,1,2,4,1,2])
+    print(result)
+
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    __problem21()
+    __problem121()
