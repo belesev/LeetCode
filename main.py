@@ -9,6 +9,7 @@ from Problem21 import ListNode
 from Problem169 import Solution as Solution169
 from Problem121 import Solution as Solution121
 from Problem53 import Solution as Solution53
+from Problem20 import Solution as Solution20
 
 def __problem3():
     solution = Solution3()
@@ -77,7 +78,7 @@ def __problem169():
 
 def __problem121():
     solution = Solution121()
-    result = solution.maxProfit([2,1,2,4,1,2])
+    result = solution.maxProfit([7,2])
     print(result)
 
 def __problem53():
@@ -85,6 +86,11 @@ def __problem53():
     result = solution.maxSubArray([1, 0, -2,1, -2])
     print(result)
 
+def __problem20():
+    solution = Solution20()
+    result = solution.isValid("{()[}]")
+    print(result)
+
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    __problem53()
+    __problem20()

@@ -8,28 +8,15 @@ from typing import List
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        left = 0
-        right = len(prices)-1
-        best = 0
+        if not len(prices):
+            return 0
+        # array stores for each element the minimum value previous to it
+        arr_mins = [prices[0]]
+        max_profit = 0
 
-        while left < right:
-            candidate = prices[right] - prices[left]
-            best = candidate if candidate > best else best
+        for i in range(1, len(prices)):
+            if prices[i] - arr_mins[i-1] > max_profit:
+                max_profit = prices[i] - arr_mins[i-1]
+            arr_mins.append(min(arr_mins[i-1], prices[i]))
 
-            # for left: next number is better buy price
-            if prices[left+1] < prices[left]:
-                left += 1
-                continue
-
-            # for right: previous  number is better sell price
-            if prices[right-1] > prices[right]:
-                right -= 1
-                continue
-
-            # move left if more profitable
-            if prices[right] - prices[left+1] > prices[right-1] - prices[left]:
-                left += 1
-            else:
-                right -= 1
-
-        return best
+        return max_profit
