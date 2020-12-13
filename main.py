@@ -10,6 +10,7 @@ from Problem169 import Solution as Solution169
 from Problem121 import Solution as Solution121
 from Problem53 import Solution as Solution53
 from Problem20 import Solution as Solution20
+from Problem70 import Solution as Solution70
 
 def __problem3():
     solution = Solution3()
@@ -91,6 +92,11 @@ def __problem20():
     result = solution.isValid("{()[}]")
     print(result)
 
+def __problem70():
+    solution = Solution70()
+    result = solution.climbingStairs(5)
+    print(result)
+
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    __problem20()
+    __problem70()
