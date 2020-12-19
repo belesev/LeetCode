@@ -150,4 +150,7 @@ def test_problem101():
     assert not solution.isSymmetric(root)
     root = None
     assert solution.isSymmetric(root)
+    # equal traversal sequence
+    root = TreeNode(5, TreeNode(4, None, TreeNode(1, TreeNode(2))), TreeNode(1, None, TreeNode(4, TreeNode(2))))
+    assert not solution.isSymmetric(root)
 

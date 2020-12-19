@@ -19,33 +19,35 @@ class Solution:
         # popping from stack and comparing from right branch
         stack_left = []
         stack_right = []
-        self.append_stack_left_to_right(stack_left, root.left)
-        self.append_stack_right_to_left(stack_right, root.right)
+        self.append_stack_left_to_right(stack_left, root.left, 1)
+        self.append_stack_right_to_left(stack_right, root.right, 1)
         while len(stack_left) and len(stack_right):
-            item_left = stack_left.pop(0)
-            item_right = stack_right.pop(0)
+            (item_left, level_left) = stack_left.pop(0)
+            (item_right, level_right) = stack_right.pop(0)
             if item_left != item_right:
+                return False
+            if level_left != level_right:
                 return False
         return len(stack_left) == 0 and len(stack_right) == 0
 
-    def append_stack_left_to_right(self, stack: [], node: TreeNode):
+    def append_stack_left_to_right(self, stack: [], node: TreeNode, level: int):
         if not node:
-            stack.append(None)
+            stack.append((None, level))
             return
         # if node has at least one child, then append both
         # even if one of them is None
         if node.left or node.right:
-            self.append_stack_left_to_right(stack, node.left)
-        stack.append(node.val)
+            self.append_stack_left_to_right(stack, node.left, level+1)
+        stack.append((node.val, level))
         if node.left or node.right:
-            self.append_stack_left_to_right(stack, node.right)
+            self.append_stack_left_to_right(stack, node.right, level+1)
 
-    def append_stack_right_to_left(self, stack: [], node: TreeNode):
+    def append_stack_right_to_left(self, stack: [], node: TreeNode, level: int):
         if not node:
-            stack.append(None)
+            stack.append((None, level))
             return
         if node.left or node.right:
-            self.append_stack_right_to_left(stack, node.right)
-        stack.append(node.val)
+            self.append_stack_right_to_left(stack, node.right, level+1)
+        stack.append((node.val, level))
         if node.left or node.right:
-            self.append_stack_right_to_left(stack, node.left)
+            self.append_stack_right_to_left(stack, node.left, level+1)
