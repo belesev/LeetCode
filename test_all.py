@@ -13,6 +13,7 @@ from Problem20 import Solution as Solution20
 from Problem70 import Solution as Solution70
 from Problem101 import Solution as Solution101
 from Problem101 import TreeNode as TreeNode
+from Problem104 import Solution as Solution104
 
 def test_problem3():
     solution = Solution3()
@@ -154,3 +155,13 @@ def test_problem101():
     root = TreeNode(5, TreeNode(4, None, TreeNode(1, TreeNode(2))), TreeNode(1, None, TreeNode(4, TreeNode(2))))
     assert not solution.isSymmetric(root)
 
+def test_problem104():
+    solution = Solution104()
+    result = solution.maxDepth(TreeNode(3, TreeNode(9), TreeNode(20, TreeNode(15), TreeNode(7))))
+    assert 3 == result
+    result = solution.maxDepth(TreeNode(1, TreeNode(2), TreeNode(3, TreeNode(4, TreeNode(5)))))
+    assert 4 == result
+    result = solution.maxDepth(TreeNode(1, None, TreeNode(2)))
+    assert 2 == result
+    result = solution.maxDepth(None)
+    assert 0 == result
