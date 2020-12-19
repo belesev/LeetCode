@@ -14,11 +14,14 @@ from Problem70 import Solution as Solution70
 from Problem101 import Solution as Solution101
 from Problem101 import TreeNode as TreeNode
 from Problem104 import Solution as Solution104
+from Problem136 import Solution as Solution136
+
 
 def test_problem3():
     solution = Solution3()
     result = solution.lengthOfLongestSubstring("abcxxabcdee")
     assert 6 == result
+
 
 def test_problem24():
     solution = Solution24()
@@ -36,6 +39,7 @@ def test_problem24():
     #node = ListNode(1, None)
     #node = ListNode(1, ListNode(2, None))
     #node = None
+
 
 def test_problem33():
     solution = Solution33()
@@ -68,6 +72,7 @@ def test_problem33():
     result = solution.search([1, 3], 0)
     assert -1 == result
 
+
 def test_problem93():
     solution = Solution93()
     result = solution.restoreIpAddresses("101023")
@@ -76,15 +81,18 @@ def test_problem93():
     for ip in result:
         print(ip)
 
+
 def test_problem11():
     solution = Solution11()
     result = solution.maxArea([8,2,6,2,10,2,5,9])
     assert 56 == result
 
+
 def test_problem387():
     solution = Solution387()
     result = solution.firstUniqChar("leecodevl")
     assert 3 == result
+
 
 def test_problem21():
     solution = Solution21()
@@ -95,6 +103,7 @@ def test_problem21():
         expected_item = expected.pop(0)
         assert expected_item == result.val
         result = result.next
+
 
 def test_problem169():
     solution = Solution169()
@@ -108,6 +117,7 @@ def test_problem53():
     result = solution.maxSubArray([1, 0, -2, 3, -2, 5])
     assert 6 == result
 
+
 def test_problem121():
     solution = Solution121()
     result = solution.maxProfit([7, 2])
@@ -116,6 +126,7 @@ def test_problem121():
     assert 9 == result
     result = solution.maxProfit([2, 10, 1, 11])
     assert 10 == result
+
 
 def test_problem20():
     solution = Solution20()
@@ -130,6 +141,7 @@ def test_problem20():
 def test_problem70():
     result = Solution70().climbStairs(5)
     assert 8 == result
+
 
 def test_problem101():
     solution = Solution101()
@@ -155,6 +167,7 @@ def test_problem101():
     root = TreeNode(5, TreeNode(4, None, TreeNode(1, TreeNode(2))), TreeNode(1, None, TreeNode(4, TreeNode(2))))
     assert not solution.isSymmetric(root)
 
+
 def test_problem104():
     solution = Solution104()
     result = solution.maxDepth(TreeNode(3, TreeNode(9), TreeNode(20, TreeNode(15), TreeNode(7))))
@@ -165,3 +178,9 @@ def test_problem104():
     assert 2 == result
     result = solution.maxDepth(None)
     assert 0 == result
+
+
+def test_problem136():
+    assert 1 == Solution136().singleNumber([2, 2, 1])
+    assert 4 == Solution136().singleNumber([4, 1, 2, 1, 2])
+    assert 1 == Solution136().singleNumber([1])
