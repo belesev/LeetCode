@@ -15,6 +15,7 @@ from Problem101 import Solution as Solution101
 from Problem101 import TreeNode as TreeNode
 from Problem104 import Solution as Solution104
 from Problem136 import Solution as Solution136
+from Problem141 import Solution as Solution141
 
 
 def test_problem3():
@@ -184,3 +185,21 @@ def test_problem136():
     assert 1 == Solution136().singleNumber([2, 2, 1])
     assert 4 == Solution136().singleNumber([4, 1, 2, 1, 2])
     assert 1 == Solution136().singleNumber([1])
+
+
+def test_problem141():
+    solution = Solution141()
+    pseudo_tail = ListNode(-4)
+    pos = ListNode(2, ListNode(0, pseudo_tail))
+    pseudo_tail.next = pos
+    head = ListNode(3, pos)
+    assert solution.hasCycle(head)
+
+    assert not solution.hasCycle(ListNode(1))
+
+    tail = ListNode(2)
+    head = ListNode(1, tail)
+    assert not solution.hasCycle(head)
+
+    tail.next = head
+    assert solution.hasCycle(head)
