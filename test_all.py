@@ -16,12 +16,13 @@ from Problem101 import TreeNode as TreeNode
 from Problem104 import Solution as Solution104
 from Problem136 import Solution as Solution136
 from Problem141 import Solution as Solution141
+from Problem155 import MinStack
 
 
 def test_problem3():
     solution = Solution3()
     result = solution.lengthOfLongestSubstring("abcxxabcdee")
-    assert 6 == result
+    assert result == 6
 
 
 def test_problem24():
@@ -32,7 +33,7 @@ def test_problem24():
     while result:
         print(result.val, " -> ")
         expected_item = expected.pop(0)
-        assert expected_item == result.val
+        assert result.val == expected_item
         result = result.next
 
     #node = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5, None)))))
@@ -45,40 +46,40 @@ def test_problem24():
 def test_problem33():
     solution = Solution33()
     result = solution.search([4, 5, 6, 7, 8, 0, 1, 2, 3], 0)
-    assert 5 == result
+    assert result == 5
     result = solution.search([4, 5, 6, 7, 8, 0, 1, 2, 3], 7)
-    assert 3 == result
+    assert result == 3
     result = solution.search([4, 5, 6, 7, 8, 0, 1, 2], 3)
-    assert -1 == result
+    assert result == -1
     result = solution.search([4, 5, 6, 7, 0, 1, 2, 3], 0)
-    assert 4 == result
+    assert result == 4
     result = solution.search([4, 5, 6, 0, 1, 2, 3], 6)
-    assert 2 == result
+    assert result == 2
     result = solution.search([4, 5, 0, 1, 2, 3], 0)
-    assert 2 == result
+    assert result == 2
     result = solution.search([4, 0, 1, 2, 3], 0)
-    assert 1 == result
+    assert result == 1
     result = solution.search([4, 0, 1, 2], 0)
-    assert 1 == result
+    assert result == 1
     result = solution.search([4, 0, 1], 0)
-    assert 1 == result
+    assert result == 1
     result = solution.search([4, 0], 0)
-    assert 1 == result
+    assert result == 1
     result = solution.search([0], 0)
-    assert 0 == result
+    assert result == 0
     result = solution.search([4], 0)
-    assert -1 == result
+    assert result == -1
     result = solution.search([1, 3], 1)
-    assert 0 == result
+    assert result == 0
     result = solution.search([1, 3], 0)
-    assert -1 == result
+    assert result == -1
 
 
 def test_problem93():
     solution = Solution93()
     result = solution.restoreIpAddresses("101023")
     expected = ["1.0.10.23", "1.0.102.3", "10.1.0.23", "10.10.2.3", "101.0.2.3"]
-    assert expected == result
+    assert result == expected
     for ip in result:
         print(ip)
 
@@ -86,13 +87,13 @@ def test_problem93():
 def test_problem11():
     solution = Solution11()
     result = solution.maxArea([8,2,6,2,10,2,5,9])
-    assert 56 == result
+    assert result == 56
 
 
 def test_problem387():
     solution = Solution387()
     result = solution.firstUniqChar("leecodevl")
-    assert 3 == result
+    assert result == 3
 
 
 def test_problem21():
@@ -102,31 +103,31 @@ def test_problem21():
     while result:
         print(result.val, " -> ")
         expected_item = expected.pop(0)
-        assert expected_item == result.val
+        assert result.val == expected_item
         result = result.next
 
 
 def test_problem169():
     solution = Solution169()
     result = solution.majorityElement([1, 2, 3, 4, 1, 2, 2, 2, 2])
-    assert 2 == result
+    assert result == 2
 
 def test_problem53():
     solution = Solution53()
     result = solution.maxSubArray([1, 0, -2, 1, -2])
-    assert 1 == result
+    assert result == 1
     result = solution.maxSubArray([1, 0, -2, 3, -2, 5])
-    assert 6 == result
+    assert result == 6
 
 
 def test_problem121():
     solution = Solution121()
     result = solution.maxProfit([7, 2])
-    assert 0 == result
+    assert result == 0
     result = solution.maxProfit([1, 5, 4, 10])
-    assert 9 == result
+    assert result == 9
     result = solution.maxProfit([2, 10, 1, 11])
-    assert 10 == result
+    assert result == 10
 
 
 def test_problem20():
@@ -134,14 +135,13 @@ def test_problem20():
     result = solution.isValid("{()[}]")
     assert not result
     result = solution.isValid("{()[]}")
-    assert result
-    result = solution.isValid("{")
+    assert result == solution.isValid("{")
     assert not result
 
 
 def test_problem70():
     result = Solution70().climbStairs(5)
-    assert 8 == result
+    assert result == 8
 
 
 def test_problem101():
@@ -172,19 +172,19 @@ def test_problem101():
 def test_problem104():
     solution = Solution104()
     result = solution.maxDepth(TreeNode(3, TreeNode(9), TreeNode(20, TreeNode(15), TreeNode(7))))
-    assert 3 == result
+    assert result == 3
     result = solution.maxDepth(TreeNode(1, TreeNode(2), TreeNode(3, TreeNode(4, TreeNode(5)))))
-    assert 4 == result
+    assert result == 4
     result = solution.maxDepth(TreeNode(1, None, TreeNode(2)))
-    assert 2 == result
+    assert result == 2
     result = solution.maxDepth(None)
-    assert 0 == result
+    assert result == 0
 
 
 def test_problem136():
-    assert 1 == Solution136().singleNumber([2, 2, 1])
-    assert 4 == Solution136().singleNumber([4, 1, 2, 1, 2])
-    assert 1 == Solution136().singleNumber([1])
+    assert Solution136().singleNumber([2, 2, 1]) == 1
+    assert Solution136().singleNumber([4, 1, 2, 1, 2]) == 4
+    assert Solution136().singleNumber([1]) == 1
 
 
 def test_problem141():
@@ -203,3 +203,32 @@ def test_problem141():
 
     tail.next = head
     assert solution.hasCycle(head)
+
+
+def test_problem155():
+    min_stack = MinStack()
+    min_stack.push(-2)
+    min_stack.push(0)
+    min_stack.push(-3)
+    top = min_stack.top()
+    assert top == -3
+    min_value = min_stack.getMin()
+    assert min_value == -3
+
+    min_stack.pop()
+    top = min_stack.top()
+    assert top == 0
+    min_value = min_stack.getMin()
+    assert min_value == -2
+
+    min_stack.pop()
+    top = min_stack.top()
+    assert top == -2
+    min_value = min_stack.getMin()
+    assert min_value == -2
+
+
+    min_stack = MinStack()
+    min_stack.push(-1)
+    assert min_stack.top() == -1
+    assert min_stack.getMin() == -1
