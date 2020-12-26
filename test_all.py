@@ -19,6 +19,7 @@ from Problem141 import Solution as Solution141
 from Problem155 import MinStack
 from Problem160 import Solution as Solution160
 from Problem226 import Solution as Solution226
+from Problem283 import Solution as Solution283
 
 
 def test_problem3():
@@ -282,3 +283,21 @@ def test_problem226():
     assert result.right.val == 2
     assert result.right.left.val == 3
     assert result.right.right.val == 1
+
+def test_problem283():
+    solution = Solution283()
+    nums = [0, 1, 0, 3, 12]
+    solution.moveZeroes(nums)
+    assert nums == [1, 3, 12, 0, 0]
+
+    nums = [0, 0]
+    solution.moveZeroes(nums)
+    assert nums == [0, 0]
+
+    nums = None
+    solution.moveZeroes(nums)
+    assert not nums
+
+    nums = []
+    solution.moveZeroes(nums)
+    assert not len(nums)
