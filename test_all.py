@@ -17,6 +17,7 @@ from Problem104 import Solution as Solution104
 from Problem136 import Solution as Solution136
 from Problem141 import Solution as Solution141
 from Problem155 import MinStack
+from Problem160 import Solution as Solution160
 
 
 def test_problem3():
@@ -232,3 +233,27 @@ def test_problem155():
     min_stack.push(-1)
     assert min_stack.top() == -1
     assert min_stack.getMin() == -1
+
+def test_problem160():
+    solution = Solution160()
+    assert not solution.getIntersectionNode(None, None)
+
+    assert not solution.getIntersectionNode(None, ListNode(1))
+
+    assert not solution.getIntersectionNode(ListNode(1), None)
+
+    joint_node = ListNode(10)
+    result = solution.getIntersectionNode(ListNode(1, joint_node), ListNode(2, joint_node))
+    assert result == joint_node
+
+    joint_node = ListNode(10, ListNode(11))
+    result = solution.getIntersectionNode(ListNode(1, joint_node), ListNode(2, joint_node))
+    assert result == joint_node
+
+    joint_node = ListNode(10)
+    result = solution.getIntersectionNode(ListNode(1, ListNode(2, joint_node)), ListNode(3, joint_node))
+    assert result == joint_node
+
+    joint_node = ListNode(10, ListNode(11))
+    result = solution.getIntersectionNode(ListNode(1, ListNode(2, joint_node)), ListNode(3, joint_node))
+    assert result == joint_node
