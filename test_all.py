@@ -18,6 +18,7 @@ from Problem136 import Solution as Solution136
 from Problem141 import Solution as Solution141
 from Problem155 import MinStack
 from Problem160 import Solution as Solution160
+from Problem226 import Solution as Solution226
 
 
 def test_problem3():
@@ -257,3 +258,27 @@ def test_problem160():
     joint_node = ListNode(10, ListNode(11))
     result = solution.getIntersectionNode(ListNode(1, ListNode(2, joint_node)), ListNode(3, joint_node))
     assert result == joint_node
+
+def test_problem226():
+    solution = Solution226()
+    result = solution.invertTree(None)
+    assert not result
+
+    result = solution.invertTree(TreeNode(1))
+    assert result.val == 1
+    assert not result.left
+    assert not result.right
+
+    result = solution.invertTree(TreeNode(1, TreeNode(2)))
+    assert result.val == 1
+    assert not result.left
+    assert result.right.val == 2
+
+    result = solution.invertTree(TreeNode(4, TreeNode(2, TreeNode(1), TreeNode(3)), TreeNode(7, TreeNode(6), TreeNode(9))))
+    assert result.val == 4
+    assert result.left.val == 7
+    assert result.left.left.val == 9
+    assert result.left.right.val == 6
+    assert result.right.val == 2
+    assert result.right.left.val == 3
+    assert result.right.right.val == 1
