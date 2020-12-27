@@ -20,6 +20,7 @@ from Problem155 import MinStack
 from Problem160 import Solution as Solution160
 from Problem226 import Solution as Solution226
 from Problem283 import Solution as Solution283
+from Problem347 import Solution as Solution347
 
 
 def test_problem3():
@@ -301,3 +302,17 @@ def test_problem283():
     nums = []
     solution.moveZeroes(nums)
     assert not len(nums)
+
+def test_problem347():
+    solution = Solution347()
+    result = solution.topKFrequent([1, 1, 1, 2, 2, 3], 1)
+    assert result == [1]
+
+    result = solution.topKFrequent([1, 1, 1, 2, 3, 3, 3], 2)
+    assert result == [1, 3]
+
+    result = solution.topKFrequent([1, 2, 3], 3)
+    assert result == [1, 2, 3]
+
+    result = solution.topKFrequent([1, 1, 2, 2, 2, 3, 3, 3, 3], 1)
+    assert result == [3]
