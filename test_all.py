@@ -21,6 +21,7 @@ from Problem160 import Solution as Solution160
 from Problem226 import Solution as Solution226
 from Problem283 import Solution as Solution283
 from Problem347 import Solution as Solution347
+from Problem5 import Solution as Solution5
 
 
 def test_problem3():
@@ -237,6 +238,7 @@ def test_problem155():
     assert min_stack.top() == -1
     assert min_stack.getMin() == -1
 
+
 def test_problem160():
     solution = Solution160()
     assert not solution.getIntersectionNode(None, None)
@@ -260,6 +262,7 @@ def test_problem160():
     joint_node = ListNode(10, ListNode(11))
     result = solution.getIntersectionNode(ListNode(1, ListNode(2, joint_node)), ListNode(3, joint_node))
     assert result == joint_node
+
 
 def test_problem226():
     solution = Solution226()
@@ -285,6 +288,7 @@ def test_problem226():
     assert result.right.left.val == 3
     assert result.right.right.val == 1
 
+
 def test_problem283():
     solution = Solution283()
     nums = [0, 1, 0, 3, 12]
@@ -303,6 +307,7 @@ def test_problem283():
     solution.moveZeroes(nums)
     assert not len(nums)
 
+
 def test_problem347():
     solution = Solution347()
     result = solution.topKFrequent([1, 1, 1, 2, 2, 3], 1)
@@ -316,3 +321,16 @@ def test_problem347():
 
     result = solution.topKFrequent([1, 1, 2, 2, 2, 3, 3, 3, 3], 1)
     assert result == [3]
+
+
+def test_problem5():
+    solution = Solution5()
+    #assert solution.longestPalindrome("aba") == "aba"
+    #assert solution.longestPalindrome("aa") == "aa"
+    #assert solution.longestPalindrome("a") == "a"
+    #assert solution.longestPalindrome("abXYXwc") == "XYX"
+    #assert solution.longestPalindrome("abXYX") == "XYX"
+    #assert solution.longestPalindrome("abXYZYXwc") == "XYZYX"
+    #assert solution.longestPalindrome("abXYZYXYZYXwc") == "XYZYXYZYX"
+    # assert solution.longestPalindrome("mACAbdkACAa") == "ACA"
+    assert solution.longestPalindrome("aacxycaa") == "aa"
