@@ -23,6 +23,7 @@ from Problem283 import Solution as Solution283
 from Problem347 import Solution as Solution347
 from Problem5 import Solution as Solution5
 from Problem2 import Solution as Solution2
+from Problem206 import Solution as Solution206
 
 
 def test_problem3():
@@ -359,3 +360,18 @@ def test_problem2():
     assert result.val == 8
     assert result.next.val == 9
     assert result.next.next.val == 1
+
+
+def test_problem206():
+    result = Solution206().reverseList(ListNode(1, ListNode(2, ListNode(3))))
+    assert result.val == 3
+    assert result.next.val == 2
+    assert result.next.next.val == 1
+    assert not result.next.next.next
+
+    result = Solution206().reverseList(None)
+    assert not result
+
+    result = Solution206().reverseList(ListNode(1))
+    assert result.val == 1
+    assert not result.next
