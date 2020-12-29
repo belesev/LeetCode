@@ -22,6 +22,7 @@ from Problem226 import Solution as Solution226
 from Problem283 import Solution as Solution283
 from Problem347 import Solution as Solution347
 from Problem5 import Solution as Solution5
+from Problem2 import Solution as Solution2
 
 
 def test_problem3():
@@ -325,12 +326,36 @@ def test_problem347():
 
 def test_problem5():
     solution = Solution5()
-    #assert solution.longestPalindrome("aba") == "aba"
-    #assert solution.longestPalindrome("aa") == "aa"
-    #assert solution.longestPalindrome("a") == "a"
-    #assert solution.longestPalindrome("abXYXwc") == "XYX"
-    #assert solution.longestPalindrome("abXYX") == "XYX"
-    #assert solution.longestPalindrome("abXYZYXwc") == "XYZYX"
-    #assert solution.longestPalindrome("abXYZYXYZYXwc") == "XYZYXYZYX"
-    # assert solution.longestPalindrome("mACAbdkACAa") == "ACA"
+    assert solution.longestPalindrome("aba") == "aba"
+    assert solution.longestPalindrome("aa") == "aa"
+    assert solution.longestPalindrome("a") == "a"
+    assert solution.longestPalindrome("abXYXwc") == "XYX"
+    assert solution.longestPalindrome("abXYX") == "XYX"
+    assert solution.longestPalindrome("abXYZYXwc") == "XYZYX"
+    assert solution.longestPalindrome("abXYZYXYZYXwc") == "XYZYXYZYX"
+    assert solution.longestPalindrome("mACAbdkACAa") == "ACA"
     assert solution.longestPalindrome("aacxycaa") == "aa"
+
+
+def test_problem2():
+    solution = Solution2()
+    # 342+465=807
+    result = solution.addTwoNumbers(ListNode(2, ListNode(4, ListNode(3))), ListNode(5, ListNode(6, ListNode(4))))
+    assert result.val == 7
+    assert result.next.val == 0
+    assert result.next.next.val == 8
+
+    # 0+10=10
+    result = solution.addTwoNumbers(ListNode(0), ListNode(0, ListNode(1)))
+    assert result.val == 0
+    assert result.next.val == 1
+
+    # 0+0=0
+    result = solution.addTwoNumbers(ListNode(0), ListNode(0))
+    assert result.val == 0
+
+    # 99+99=198
+    result = solution.addTwoNumbers(ListNode(9, ListNode(9)), ListNode(9, ListNode(9)))
+    assert result.val == 8
+    assert result.next.val == 9
+    assert result.next.next.val == 1
