@@ -25,6 +25,7 @@ from Problem5 import Solution as Solution5
 from Problem2 import Solution as Solution2
 from Problem206 import Solution as Solution206
 from Problem234 import Solution as Solution234
+from Problem448 import Solution as Solution448
 
 
 def test_problem3():
@@ -387,3 +388,11 @@ def test_problem234():
     assert Solution234().isPalindrome(ListNode(1))
     assert not Solution234().isPalindrome(ListNode(1, ListNode(2)))
     assert not Solution234().isPalindrome(None)
+
+
+def test_problem448():
+    assert Solution448().findDisappearedNumbers([1, 2, 2]) == [3]
+    assert Solution448().findDisappearedNumbers([4, 3, 2, 7, 8, 2, 3, 1]) == [5, 6]
+    assert Solution448().findDisappearedNumbers([1, 1]) == [2]
+    assert Solution448().findDisappearedNumbers([1, 2, 3, 4, 1, 2, 3, 4]) == [5, 6, 7, 8]
+
