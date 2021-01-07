@@ -24,6 +24,7 @@ from Problem347 import Solution as Solution347
 from Problem5 import Solution as Solution5
 from Problem2 import Solution as Solution2
 from Problem206 import Solution as Solution206
+from Problem234 import Solution as Solution234
 
 
 def test_problem3():
@@ -375,3 +376,14 @@ def test_problem206():
     result = Solution206().reverseList(ListNode(1))
     assert result.val == 1
     assert not result.next
+
+
+def test_problem234():
+    assert Solution234().isPalindrome(ListNode(1, ListNode(2, ListNode(2, ListNode(1)))))
+    assert Solution234().isPalindrome(ListNode(1, ListNode(2, ListNode(3, ListNode(2, ListNode(1))))))
+    assert not Solution234().isPalindrome(ListNode(1, ListNode(2, ListNode(2, ListNode(0)))))
+    assert Solution234().isPalindrome(ListNode(1, ListNode(2, ListNode(1))))
+    assert not Solution234().isPalindrome(ListNode(1, ListNode(2, ListNode(3))))
+    assert Solution234().isPalindrome(ListNode(1))
+    assert not Solution234().isPalindrome(ListNode(1, ListNode(2)))
+    assert not Solution234().isPalindrome(None)
