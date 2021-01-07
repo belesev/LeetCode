@@ -26,6 +26,7 @@ from Problem2 import Solution as Solution2
 from Problem206 import Solution as Solution206
 from Problem234 import Solution as Solution234
 from Problem448 import Solution as Solution448
+from Problem543 import Solution as Solution543
 
 
 def test_problem3():
@@ -396,3 +397,13 @@ def test_problem448():
     assert Solution448().findDisappearedNumbers([1, 1]) == [2]
     assert Solution448().findDisappearedNumbers([1, 2, 3, 4, 1, 2, 3, 4]) == [5, 6, 7, 8]
 
+
+def test_problem543():
+    assert Solution543().diameterOfBinaryTree(TreeNode(1, TreeNode(2, TreeNode(4), TreeNode(5)), TreeNode(3))) == 3
+    node_l = TreeNode(4, TreeNode(6), TreeNode(7, TreeNode(9)))
+    node_r = TreeNode(5, None, TreeNode(8, TreeNode(10, None, TreeNode(11))))
+    assert Solution543().diameterOfBinaryTree(TreeNode(1, TreeNode(2, node_l, node_r), TreeNode(3))) == 7
+    assert Solution543().diameterOfBinaryTree(TreeNode(1)) == 0
+    assert Solution543().diameterOfBinaryTree(TreeNode(1, TreeNode(2))) == 1
+    assert Solution543().diameterOfBinaryTree(TreeNode(1, TreeNode(2), TreeNode(3))) == 2
+    assert Solution543().diameterOfBinaryTree(None) == 0
