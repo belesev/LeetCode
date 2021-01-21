@@ -27,6 +27,7 @@ from Problem206 import Solution as Solution206
 from Problem234 import Solution as Solution234
 from Problem448 import Solution as Solution448
 from Problem543 import Solution as Solution543
+from Problem617 import Solution as Solution617
 
 
 def test_problem3():
@@ -407,3 +408,28 @@ def test_problem543():
     assert Solution543().diameterOfBinaryTree(TreeNode(1, TreeNode(2))) == 1
     assert Solution543().diameterOfBinaryTree(TreeNode(1, TreeNode(2), TreeNode(3))) == 2
     assert Solution543().diameterOfBinaryTree(None) == 0
+
+
+def test_problem617():
+    t1 = TreeNode(1, TreeNode(3, TreeNode(5)), TreeNode(2))
+    t2 = TreeNode(2, TreeNode(1, None, TreeNode(4)), TreeNode(3, None, TreeNode(7)))
+    merged = Solution617().mergeTrees(t1, t2)
+    assert merged
+    assert merged.val == 3
+    node = merged.left
+    assert node
+    assert node.val == 4
+    assert node.left
+    assert node.left.val == 5
+    assert not node.left.left
+    assert not node.left.right
+    assert node.right.val == 4
+    assert not node.right.left
+    assert not node.right.right
+    node = merged.right
+    assert node.val == 5
+    assert not node.left
+    assert node.right
+    assert node.right.val == 7
+    assert not node.right.left
+    assert not node.right.right
