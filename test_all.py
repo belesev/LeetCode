@@ -29,6 +29,7 @@ from Problem448 import Solution as Solution448
 from Problem543 import Solution as Solution543
 from Problem617 import Solution as Solution617
 from Problem15 import Solution as Solution15
+from Problem17 import Solution as Solution17
 
 
 def test_problem3():
@@ -459,3 +460,14 @@ def test_problem15():
 
     result = Solution15().threeSum([1, 2, -2, -1])
     assert not(len(result))
+
+
+def test_problem17():
+    result = Solution17().letterCombinations("23")
+    assert len(result) == 9
+    assert set(result) == {"ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"}
+
+    assert not(len(Solution17().letterCombinations("")))
+
+    result = Solution17().letterCombinations("9")
+    assert set(result) == {"w", "x", "y", "z"}
