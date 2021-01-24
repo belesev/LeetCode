@@ -28,6 +28,7 @@ from Problem234 import Solution as Solution234
 from Problem448 import Solution as Solution448
 from Problem543 import Solution as Solution543
 from Problem617 import Solution as Solution617
+from Problem15 import Solution as Solution15
 
 
 def test_problem3():
@@ -433,3 +434,28 @@ def test_problem617():
     assert node.right.val == 7
     assert not node.right.left
     assert not node.right.right
+
+
+def test_problem15():
+    result = Solution15().threeSum([-1, 0, 1, 2, -1, -4])
+    assert result
+    assert len(result) == 2
+    expected = [(-1, -1, 2), (-1, 0, 1)]
+    while len(result):
+        r = result.pop()
+        assert len(r) == 3
+        assert r in expected
+
+    assert not(len(Solution15().threeSum([])))
+
+    assert not(len(Solution15().threeSum([0])))
+
+    assert not(len(Solution15().threeSum([0, 1])))
+
+    result = Solution15().threeSum([0, 0, 0])
+    assert result
+    assert len(result) == 1
+    assert result.pop() == (0, 0, 0)
+
+    result = Solution15().threeSum([1, 2, -2, -1])
+    assert not(len(result))
