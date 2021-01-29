@@ -30,6 +30,7 @@ from Problem543 import Solution as Solution543
 from Problem617 import Solution as Solution617
 from Problem15 import Solution as Solution15
 from Problem17 import Solution as Solution17
+from Problem19 import Solution as Solution19
 
 
 def test_problem3():
@@ -471,3 +472,46 @@ def test_problem17():
 
     result = Solution17().letterCombinations("9")
     assert set(result) == {"w", "x", "y", "z"}
+
+
+def test_problem19():
+    head = ListNode(1, ListNode(2, ListNode(3, ListNode(4))))
+    node = Solution19().removeNthFromEnd(head, 2)
+    expected = [1, 2, 4]
+    while node:
+        expected_num = expected.pop(0)
+        assert node.val == expected_num
+        node = node.next
+    assert not(len(expected))
+
+    head = ListNode(1, ListNode(2, ListNode(3, ListNode(4))))
+    node = Solution19().removeNthFromEnd(head, 3)
+    expected = [1, 3, 4]
+    while node:
+        expected_num = expected.pop(0)
+        assert node.val == expected_num
+        node = node.next
+    assert not (len(expected))
+
+    head = ListNode(1, ListNode(2, ListNode(3, ListNode(4))))
+    node = Solution19().removeNthFromEnd(head, 1)
+    expected = [1, 2, 3]
+    while node:
+        expected_num = expected.pop(0)
+        assert node.val == expected_num
+        node = node.next
+    assert not (len(expected))
+
+    head = ListNode(1, ListNode(2, ListNode(3, ListNode(4))))
+    node = Solution19().removeNthFromEnd(head, 4)
+    expected = [2, 3, 4]
+    while node:
+        expected_num = expected.pop(0)
+        assert node.val == expected_num
+        node = node.next
+    assert not (len(expected))
+
+    head = ListNode(1)
+    node = Solution19().removeNthFromEnd(head, 1)
+    assert not node
+
