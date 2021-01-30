@@ -31,6 +31,7 @@ from Problem617 import Solution as Solution617
 from Problem15 import Solution as Solution15
 from Problem17 import Solution as Solution17
 from Problem19 import Solution as Solution19
+from Problem48 import Solution as Solution48
 
 
 def test_problem3():
@@ -515,3 +516,20 @@ def test_problem19():
     node = Solution19().removeNthFromEnd(head, 1)
     assert not node
 
+
+def test_problem48():
+    matrix=[[1]]
+    Solution48().rotate(matrix)
+    assert matrix == [[1]]
+
+    matrix = [[1,2],[3,4]]
+    Solution48().rotate(matrix)
+    assert matrix == [[3,1],[4,2]]
+
+    matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    Solution48().rotate(matrix)
+    assert matrix == [[7,4,1],[8,5,2],[9,6,3]]
+
+    matrix = [[5, 1, 9, 11], [2, 4, 8, 10], [13, 3, 6, 7], [15, 14, 12, 16]]
+    Solution48().rotate(matrix)
+    assert matrix == [[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]
