@@ -32,6 +32,7 @@ from Problem15 import Solution as Solution15
 from Problem17 import Solution as Solution17
 from Problem19 import Solution as Solution19
 from Problem48 import Solution as Solution48
+from Problem215 import Solution as Solution215
 
 
 def test_problem3():
@@ -533,3 +534,13 @@ def test_problem48():
     matrix = [[5, 1, 9, 11], [2, 4, 8, 10], [13, 3, 6, 7], [15, 14, 12, 16]]
     Solution48().rotate(matrix)
     assert matrix == [[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]
+
+
+def test_problem215():
+    assert Solution215().findKthLargest([3, 2, 1, 5, 6, 4], 2) == 5
+    assert Solution215().findKthLargest([3, 2, 1, 5, 6, 4], 3) == 4
+    assert Solution215().findKthLargest([3, 2, 1, 5, 6, 4], 1) == 6
+    assert Solution215().findKthLargest([3, 2, 1, 5, 6, 4], 4) == 3
+    assert Solution215().findKthLargest([3, 2, 1, 5, 6, 4], 5) == 2
+    assert Solution215().findKthLargest([3, 2, 1, 5, 6, 4], 6) == 1
+    assert Solution215().findKthLargest([3, 2, 3, 1, 2, 4, 5, 5, 6], 4) == 4
