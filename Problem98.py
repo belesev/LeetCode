@@ -17,6 +17,7 @@ class Solution:
         for lt in to_be_lt:
             if node.val >= lt:
                 return False
+            
         for gt in to_be_gt:
             if node.val <= gt:
                 return False
