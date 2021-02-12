@@ -33,6 +33,10 @@ from Problem17 import Solution as Solution17
 from Problem19 import Solution as Solution19
 from Problem48 import Solution as Solution48
 from Problem215 import Solution as Solution215
+from Problem88 import Solution as Solution88
+from Problem125 import Solution as Solution125
+from Problem31 import Solution as Solution31
+from Problem98 import Solution as Solution98
 
 
 def test_problem3():
@@ -544,3 +548,76 @@ def test_problem215():
     assert Solution215().findKthLargest([3, 2, 1, 5, 6, 4], 5) == 2
     assert Solution215().findKthLargest([3, 2, 1, 5, 6, 4], 6) == 1
     assert Solution215().findKthLargest([3, 2, 3, 1, 2, 4, 5, 5, 6], 4) == 4
+
+
+def test_problem88():
+    nums1 = [1, 3, 0, 0]
+    Solution88().merge(nums1, 2, [2, 6], 2)
+    assert nums1 == [1, 2, 3, 6]
+
+    nums1 = [1, 2, 3, 0, 0, 0]
+    Solution88().merge(nums1, 3, [2, 5, 6], 3)
+    assert nums1 == [1, 2, 2, 3, 5, 6]
+
+    nums1 = [0]
+    Solution88().merge(nums1, 0, [7], 1)
+    assert nums1 == [7]
+
+    nums1 = [7]
+    Solution88().merge(nums1, 1, [], 0)
+    assert nums1 == [7]
+
+    nums1 = [4, 5, 6, 0, 0, 0]
+    Solution88().merge(nums1, 3, [1, 2, 3], 3)
+    assert nums1 == [1, 2, 3, 4, 5, 6]
+
+
+def test_problem125():
+    assert not Solution125().isPalindrome("abc")
+    assert not Solution125().isPalindrome("abcde")
+    assert Solution125().isPalindrome("a")
+    assert Solution125().isPalindrome("aba")
+    assert Solution125().isPalindrome("abba")
+    assert Solution125().isPalindrome("A man, a plan, a canal: Panama")
+    assert not Solution125().isPalindrome("race a car")
+
+
+def test_problem31():
+    nums = [0, 1, 2, 5, 3, 3, 0]
+    Solution31().nextPermutation(nums)
+    assert nums == [0, 1, 3, 0, 2, 3, 5]
+
+    nums = [1, 2, 3]
+    Solution31().nextPermutation(nums)
+    assert nums == [1, 3, 2]
+
+    nums = [1, 1, 5]
+    Solution31().nextPermutation(nums)
+    assert nums == [1, 5, 1]
+
+    nums = [1, 5, 1]
+    Solution31().nextPermutation(nums)
+    assert nums == [5, 1, 1]
+
+    nums = [1]
+    Solution31().nextPermutation(nums)
+    assert nums == [1]
+
+    nums = [3, 2, 1]
+    Solution31().nextPermutation(nums)
+    assert nums == [1, 2, 3]
+
+    nums = [4, 3, 2, 1]
+    Solution31().nextPermutation(nums)
+    assert nums == [1, 2, 3, 4]
+
+
+def test_problem98():
+    assert Solution98().isValidBST(TreeNode(2, TreeNode(1), TreeNode(3)))
+    assert not Solution98().isValidBST(TreeNode(1, TreeNode(2), TreeNode(3)))
+    assert not Solution98().isValidBST(TreeNode(5, TreeNode(1), TreeNode(4, TreeNode(3), TreeNode(6))))
+    assert Solution98().isValidBST(TreeNode(2, TreeNode(1), TreeNode(5, TreeNode(3), TreeNode(6))))
+    assert Solution98().isValidBST(TreeNode(2))
+    assert Solution98().isValidBST(TreeNode(3, TreeNode(2, TreeNode(1))))
+    assert Solution98().isValidBST(TreeNode(3, None, TreeNode(4, None, TreeNode(5))))
+
