@@ -37,6 +37,7 @@ from Problem88 import Solution as Solution88
 from Problem125 import Solution as Solution125
 from Problem31 import Solution as Solution31
 from Problem98 import Solution as Solution98
+from Problem199 import Solution as Solution199
 
 
 def test_problem3():
@@ -621,3 +622,12 @@ def test_problem98():
     assert Solution98().isValidBST(TreeNode(3, TreeNode(2, TreeNode(1))))
     assert Solution98().isValidBST(TreeNode(3, None, TreeNode(4, None, TreeNode(5))))
 
+
+def test_problem199():
+    assert Solution199().rightSideView(None) == []
+    assert Solution199().rightSideView(TreeNode(1, TreeNode(2, TreeNode(3)))) == [1, 2, 3]
+    assert Solution199().rightSideView(TreeNode(1, None, TreeNode(2, None, TreeNode(3)))) == [1, 2, 3]
+    assert Solution199().rightSideView(TreeNode(1, TreeNode(2, TreeNode(4), TreeNode(5)), TreeNode(3))) == [1, 3, 5]
+    assert Solution199().rightSideView(TreeNode(1, TreeNode(2), TreeNode(3, TreeNode(4), TreeNode(5)))) == [1, 3, 5]
+    assert Solution199().rightSideView(TreeNode(1, TreeNode(2, TreeNode(4, TreeNode(6), TreeNode(7)), TreeNode(5)),
+                                                TreeNode(3, TreeNode(8)))) == [1, 3, 8, 7]
