@@ -37,6 +37,11 @@ from Problem88 import Solution as Solution88
 from Problem125 import Solution as Solution125
 from Problem31 import Solution as Solution31
 from Problem98 import Solution as Solution98
+from Problem146 import LRUCache
+from Problem56 import Solution as Solution56
+from Problem98 import Solution as Solution98
+from Problem133 import Solution as Solution133
+from Problem133 import Node as GraphNode
 from Problem199 import Solution as Solution199
 
 
@@ -631,3 +636,67 @@ def test_problem199():
     assert Solution199().rightSideView(TreeNode(1, TreeNode(2), TreeNode(3, TreeNode(4), TreeNode(5)))) == [1, 3, 5]
     assert Solution199().rightSideView(TreeNode(1, TreeNode(2, TreeNode(4, TreeNode(6), TreeNode(7)), TreeNode(5)),
                                                 TreeNode(3, TreeNode(8)))) == [1, 3, 8, 7]
+                                                
+def test_problem146():
+    cache = LRUCache(2)
+    cache.put(1, 1)
+    cache.put(2, 2)
+    assert cache.get(2) == 2
+    assert cache.get(1) == 1
+    cache.put(3, 3)
+    assert cache.get(2) == -1
+    cache.put(4, 4)
+    assert cache.get(1) == -1
+    assert cache.get(3) == 3
+    assert cache.get(4) == 4
+
+
+def test_problem56():
+    assert Solution56().merge([[2,3],[1,3],[5,7],[4,6]]) == [[1,3], [4,7]]
+    assert Solution56().merge([[2,3],[4,5],[6,7],[8,9],[1,10]]) == [[1,10]]
+    assert Solution56().merge([[1,3], [2,4], [8,9]]) == [[1,4], [8,9]]
+    assert Solution56().merge([[1,2], [3,4], [8,9]]) == [[1,2], [3,4], [8,9]]
+    assert Solution56().merge([[1,3],[2,6],[8,10],[15,18]]) == [[1,6],[8,10],[15,18]]
+    assert Solution56().merge([[1,4],[4,5]]) == [[1,5]]
+    assert Solution56().merge([[1,4],[0,5]]) == [[0,5]]
+    assert Solution56().merge([[0,5],[1,4]]) == [[0,5]]
+
+
+def test_problem98():
+    assert Solution98().isValidBST(TreeNode(2, TreeNode(1), TreeNode(3)))
+    assert not Solution98().isValidBST(TreeNode(2, TreeNode(3), TreeNode(1)))
+    assert Solution98().isValidBST(TreeNode(2, TreeNode(1)))
+    assert Solution98().isValidBST(TreeNode(2, None, TreeNode(3)))
+    assert not Solution98().isValidBST(TreeNode(5, TreeNode(4), TreeNode(6, TreeNode(3), TreeNode(7))))
+
+
+def test_problem133():
+    node1 = GraphNode(1)
+    node3 = GraphNode(3)
+    node2 = GraphNode(2, [node1, node3])
+    node4 = GraphNode(4, [node1, node3])
+    node1.neighbors = [node2, node4]
+    node3.neighbors = [node2, node4]
+    clone1 = Solution133().cloneGraph(node1)
+    assert clone1.val == 1
+    assert len(clone1.neighbors) == 2
+
+    clone2 = clone1.neighbors[0]
+    assert clone2.val == 2
+    assert len(clone2.neighbors) == 2
+
+    assert clone2.neighbors[0] == clone1
+    clone3 = clone2.neighbors[1]
+    assert clone3.val == 3
+
+    clone4 = clone1.neighbors[1]
+    assert clone4.val == 4
+    assert len(clone4.neighbors) == 2
+    assert len(clone3.neighbors) == 2
+
+    assert not Solution133().cloneGraph(None)
+
+    single_node = Solution133().cloneGraph(GraphNode(3))
+    assert single_node.val == 3
+    assert not len(single_node.neighbors)
+
