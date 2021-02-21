@@ -700,3 +700,24 @@ def test_problem133():
     assert single_node.val == 3
     assert not len(single_node.neighbors)
 
+
+def test_problem211():
+    obj = WordDictionary()
+    obj.addWord('x')
+    assert obj.search('x')
+
+    obj.addWord('bad')
+    assert not obj.search('b')
+    assert obj.search('bad')
+    assert not obj.search('sad')
+
+    obj.addWord('sad')
+    assert obj.search('sad')
+
+    obj.addWord('foo')
+    assert obj.search('.oo')
+    assert not obj.search('.ox')
+
+    obj.addWord('boo')
+    assert obj.search('..o')
+    assert obj.search('...')
