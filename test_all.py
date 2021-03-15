@@ -37,12 +37,14 @@ from Problem88 import Solution as Solution88
 from Problem125 import Solution as Solution125
 from Problem31 import Solution as Solution31
 from Problem98 import Solution as Solution98
-from Problem146 import LRUCache
+#from Problem146 import LRUCache
 from Problem56 import Solution as Solution56
 from Problem98 import Solution as Solution98
 from Problem133 import Solution as Solution133
 from Problem133 import Node as GraphNode
 from Problem199 import Solution as Solution199
+from Problem211 import WordDictionary
+from Problem173 import BSTIterator
 
 
 def test_problem3():
@@ -721,3 +723,55 @@ def test_problem211():
     obj.addWord('boo')
     assert obj.search('..o')
     assert obj.search('...')
+
+
+def test_problem173_3nodes():
+    iter = BSTIterator(TreeNode(2, TreeNode(1), TreeNode(3)))
+    assert iter.hasNext()
+    assert iter.next() == 1
+    assert iter.hasNext()
+    assert iter.next() == 2
+    assert iter.hasNext()
+    assert iter.next() == 3
+    assert not iter.hasNext()
+
+
+def test_problem173_left_left():
+    iter = BSTIterator(TreeNode(3, TreeNode(2, TreeNode(1))))
+    assert iter.hasNext()
+    assert iter.next() == 1
+    assert iter.hasNext()
+    assert iter.next() == 2
+    assert iter.hasNext()
+    assert iter.next() == 3
+    assert not iter.hasNext()
+
+
+def test_problem173_right_right():
+    iter = BSTIterator(TreeNode(1, None, TreeNode(2, None, TreeNode(3))))
+    assert iter.hasNext()
+    assert iter.next() == 1
+    assert iter.hasNext()
+    assert iter.next() == 2
+    assert iter.hasNext()
+    assert iter.next() == 3
+    assert not iter.hasNext()
+
+
+def test_problem173_7_nodes():
+    iter = BSTIterator(TreeNode(7, TreeNode(3, TreeNode(1), TreeNode(5)), TreeNode(15, TreeNode(9), TreeNode(20))))
+    assert iter.hasNext()
+    assert iter.next() == 1
+    assert iter.hasNext()
+    assert iter.next() == 3
+    assert iter.hasNext()
+    assert iter.next() == 5
+    assert iter.hasNext()
+    assert iter.next() == 7
+    assert iter.hasNext()
+    assert iter.next() == 9
+    assert iter.hasNext()
+    assert iter.next() == 15
+    assert iter.hasNext()
+    assert iter.next() == 20
+    assert not iter.hasNext()
