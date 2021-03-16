@@ -45,6 +45,7 @@ from Problem133 import Node as GraphNode
 from Problem199 import Solution as Solution199
 from Problem211 import WordDictionary
 from Problem173 import BSTIterator
+from Problem438 import Solution as Solution438
 
 
 def test_problem3():
@@ -775,3 +776,9 @@ def test_problem173_7_nodes():
     assert iter.hasNext()
     assert iter.next() == 20
     assert not iter.hasNext()
+
+
+def test_problem438():
+    assert Solution438().findAnagrams("abab", "ab") == [0, 1, 2]
+    assert Solution438().findAnagrams("cbaebabacd", "abc") == [0, 6]
+    assert Solution438().findAnagrams("", "a") == []
