@@ -46,6 +46,7 @@ from Problem199 import Solution as Solution199
 from Problem211 import WordDictionary
 from Problem173 import BSTIterator
 from Problem438 import Solution as Solution438
+from Problem238 import Solution as Solution238
 
 
 def test_problem3():
@@ -782,3 +783,9 @@ def test_problem438():
     assert Solution438().findAnagrams("abab", "ab") == [0, 1, 2]
     assert Solution438().findAnagrams("cbaebabacd", "abc") == [0, 6]
     assert Solution438().findAnagrams("", "a") == []
+
+
+def test_problem238():
+    assert Solution238().productExceptSelf([1, 2, 3, 4, 5]) == [120, 60, 40, 30, 24]
+    assert Solution238().productExceptSelf([-1, 0, 0, -3, 3]) == [0, 0, 0, 0, 0]
+    assert Solution238().productExceptSelf([-1, 1, 0, -3, 3]) == [0, 0, 9, 0, 0]
