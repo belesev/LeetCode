@@ -47,6 +47,7 @@ from Problem211 import WordDictionary
 from Problem173 import BSTIterator
 from Problem438 import Solution as Solution438
 from Problem238 import Solution as Solution238
+from Problem304 import NumMatrix
 
 
 def test_problem3():
@@ -789,3 +790,12 @@ def test_problem238():
     assert Solution238().productExceptSelf([1, 2, 3, 4, 5]) == [120, 60, 40, 30, 24]
     assert Solution238().productExceptSelf([-1, 0, 0, -3, 3]) == [0, 0, 0, 0, 0]
     assert Solution238().productExceptSelf([-1, 1, 0, -3, 3]) == [0, 0, 9, 0, 0]
+
+
+def test_problem304_1():
+    assert NumMatrix([[1,2,3], [4,5,6], [7,8,9]]).sumRegion(1,1,2,2) == 28
+
+def test_problem304_2():
+    assert NumMatrix([[3, 0, 1, 4, 2], [5, 6, 3, 2, 1], [1, 2, 0, 1, 5], [4, 1, 0, 1, 7], [1, 0, 3, 0, 5]]).sumRegion(2,1,4,3) == 8
+    assert NumMatrix([[3, 0, 1, 4, 2], [5, 6, 3, 2, 1], [1, 2, 0, 1, 5], [4, 1, 0, 1, 7], [1, 0, 3, 0, 5]]).sumRegion(1,1,2,2) == 11
+    assert NumMatrix([[3, 0, 1, 4, 2], [5, 6, 3, 2, 1], [1, 2, 0, 1, 5], [4, 1, 0, 1, 7], [1, 0, 3, 0, 5]]).sumRegion(1,2,2,4) == 12
