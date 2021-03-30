@@ -50,6 +50,8 @@ from Problem238 import Solution as Solution238
 from Problem304 import NumMatrix
 from Problem621 import Solution as Solution621
 from Problem721 import Solution as Solution721
+from Problem863 import Solution as Solution863
+from Problem863 import TreeNode as TreeNode863
 
 
 def test_problem3():
@@ -826,3 +828,14 @@ def test_problem621_5():
 
 def test_problem721_1():
     assert Solution721().accountsMerge([["John","johnsmith@mail.com","john_newyork@mail.com"],["John","johnsmith@mail.com","john00@mail.com"],["Mary","mary@mail.com"],["John","johnnybravo@mail.com"]]) == [["John","john00@mail.com","john_newyork@mail.com","johnsmith@mail.com"],["Mary","mary@mail.com"],["John","johnnybravo@mail.com"]]
+
+
+def test_problem863_1():
+    target = TreeNode863(2, TreeNode863(3), TreeNode863(4))
+    root = TreeNode863(1, target, TreeNode863(5, TreeNode863(6), TreeNode863(7)))
+    assert set(Solution863().distanceK(root, target, 1)) == set([1, 3, 4])
+
+def test_problem863_2():
+    target = TreeNode863(5, TreeNode863(6), TreeNode863(2, TreeNode863(7), TreeNode863(4)))
+    root = TreeNode863(3, target, TreeNode863(1, TreeNode863(0), TreeNode863(8)))
+    assert set(Solution863().distanceK(root, target, 2)) == set([1, 7, 4])
