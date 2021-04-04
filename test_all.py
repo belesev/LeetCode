@@ -52,6 +52,7 @@ from Problem621 import Solution as Solution621
 from Problem721 import Solution as Solution721
 from Problem863 import Solution as Solution863
 from Problem863 import TreeNode as TreeNode863
+from Problem986 import Solution as Solution986
 
 
 def test_problem3():
@@ -835,7 +836,21 @@ def test_problem863_1():
     root = TreeNode863(1, target, TreeNode863(5, TreeNode863(6), TreeNode863(7)))
     assert set(Solution863().distanceK(root, target, 1)) == set([1, 3, 4])
 
+
 def test_problem863_2():
     target = TreeNode863(5, TreeNode863(6), TreeNode863(2, TreeNode863(7), TreeNode863(4)))
     root = TreeNode863(3, target, TreeNode863(1, TreeNode863(0), TreeNode863(8)))
     assert set(Solution863().distanceK(root, target, 2)) == set([1, 7, 4])
+
+
+def test_problem986_1():
+    assert Solution986().intervalIntersection([[0, 2]], [[1, 3]]) == [[1, 2]]
+
+
+def test_problem986_2():
+    assert Solution986().intervalIntersection([[0,2],[5,10],[13,23],[24,25]], [[1,5],[8,12],[15,24],[25,26]]) == [[1,2],[5,5],[8,10],[15,23],[24,24],[25,25]]
+
+
+def test_problem986_3():
+    assert Solution986().intervalIntersection([[1,3],[5,9]], []) == []
+
