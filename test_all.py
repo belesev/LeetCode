@@ -52,6 +52,7 @@ from Problem621 import Solution as Solution621
 from Problem721 import Solution as Solution721
 from Problem863 import Solution as Solution863
 from Problem863 import TreeNode as TreeNode863
+from Problem973 import Solution as Solution973
 
 
 def test_problem3():
@@ -835,7 +836,20 @@ def test_problem863_1():
     root = TreeNode863(1, target, TreeNode863(5, TreeNode863(6), TreeNode863(7)))
     assert set(Solution863().distanceK(root, target, 1)) == set([1, 3, 4])
 
+
 def test_problem863_2():
     target = TreeNode863(5, TreeNode863(6), TreeNode863(2, TreeNode863(7), TreeNode863(4)))
     root = TreeNode863(3, target, TreeNode863(1, TreeNode863(0), TreeNode863(8)))
     assert set(Solution863().distanceK(root, target, 2)) == set([1, 7, 4])
+
+
+def test_problem973_1():
+    assert Solution973().kClosest([[3,3],[5,-1],[-2,4]], 2) == [[3,3],[-2,4]]
+
+
+def test_problem973_2():
+    assert Solution973().kClosest([[1,3],[-2,2]], 1) == [[-2,2]]
+
+
+def test_problem973_3():
+    assert Solution973().kClosest([[1,1], [1,1]], 2) == [[1,1], [1,1]]
