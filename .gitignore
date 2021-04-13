@@ -1,3 +1,9 @@
 /venv/
 /.idea/
 /__pycache__/
+/CSharp/LeetCode/bin
+/CSharp/LeetCode/obj
+/CSharp/packages
+/CSharp/UnitTestProject2/bin/
+/CSharp/UnitTestProject2/obj/
+/CSharp/.vs/
