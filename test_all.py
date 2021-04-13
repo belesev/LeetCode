@@ -53,6 +53,7 @@ from Problem721 import Solution as Solution721
 from Problem863 import Solution as Solution863
 from Problem863 import TreeNode as TreeNode863
 from Problem973 import Solution as Solution973
+from Problem986 import Solution as Solution986
 
 
 def test_problem3():
@@ -853,3 +854,15 @@ def test_problem973_2():
 
 def test_problem973_3():
     assert Solution973().kClosest([[1,1], [1,1]], 2) == [[1,1], [1,1]]
+
+    
+def test_problem986_1():
+    assert Solution986().intervalIntersection([[0, 2]], [[1, 3]]) == [[1, 2]]
+
+
+def test_problem986_2():
+    assert Solution986().intervalIntersection([[0,2],[5,10],[13,23],[24,25]], [[1,5],[8,12],[15,24],[25,26]]) == [[1,2],[5,5],[8,10],[15,23],[24,24],[25,25]]
+
+
+def test_problem986_3():
+    assert Solution986().intervalIntersection([[1,3],[5,9]], []) == []
