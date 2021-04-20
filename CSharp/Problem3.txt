@@ -1,0 +1,42 @@
+abcabcbbddee -> 3 (abc)
+bbbbb -> 1 (b)
+pwwkew -> 3 (wke)
+
+
+public string MaxLengthSubstring(string str)
+{
+    int left = 0;
+    int right = 0;
+    
+    var unique = new HashSet<char>();
+    int bestLength = 0;
+    int bestStart = 0;
+    
+    while (right < str.Length)
+    {
+        var incoming = str[right];
+        if (!unique.Contains(incoming))
+        {
+            unique.Add(incoming);
+            right++;
+            
+            if (unique.Count() > bestLength)
+            {
+                bestLength = unique.Count();
+                bestStart = left;
+            }
+        }
+        else
+        {
+            do
+            {
+                var deleting = str[left];
+                unique.Remove(deleting);
+                left++;
+            }
+            while (deleting != incoming)
+        }
+    }
+    
+    return str.Substring(bestStart, bestLength);
+}
