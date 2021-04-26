@@ -57,6 +57,8 @@ from Problem986 import Solution as Solution986
 from Problem974 import Solution as Solution974
 from Problem49 import Solution as Solution49
 from Problem59 import Solution as Solution59
+from Problem1512 import Solution as Solution1512
+from Problem1365 import Solution as Solution1365
 
 
 def test_problem3():
@@ -903,3 +905,12 @@ def test_problem59_1():
 def test_problem59_2():
     result = Solution59().generateMatrix(3)
     assert result == [[1,2,3], [8,9,4], [7,6,5]]
+
+
+def test_problem1512():
+    assert Solution1512().numIdenticalPairs([1,2,3,1,1,3]) == 4
+    assert Solution1512().numIdenticalPairs([1,1,1,1]) == 6
+
+
+def test_problem1365():
+    assert Solution1365().smallerNumbersThanCurrent([8,1,2,2,3]) == [4,0,1,1,3]
