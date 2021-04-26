@@ -54,6 +54,9 @@ from Problem863 import Solution as Solution863
 from Problem863 import TreeNode as TreeNode863
 from Problem973 import Solution as Solution973
 from Problem986 import Solution as Solution986
+from Problem974 import Solution as Solution974
+from Problem49 import Solution as Solution49
+from Problem59 import Solution as Solution59
 
 
 def test_problem3():
@@ -866,3 +869,37 @@ def test_problem986_2():
 
 def test_problem986_3():
     assert Solution986().intervalIntersection([[1,3],[5,9]], []) == []
+
+
+def test_problem974_1():
+    assert Solution974().subarraysDivByK([1,3,5], 2) == 2
+
+
+def test_problem974_2():
+    assert Solution974().subarraysDivByK([4,5,0,-2,-3,1], 5) == 7
+
+
+def test_problem49_1():
+    result = Solution49().groupAnagrams(["eat","tea","tan","ate","nat","bat"])
+    assert len(result) == 3
+    assert set(result[0]) == {'eat', 'tea', 'ate'}
+    assert set(result[1]) == {'nat', 'tan'}
+    assert set(result[2]) == {'bat'}
+
+
+def test_problem49_2():
+    result = Solution49().groupAnagrams(["ass", "sas", "ssa", "pool", "loop", "x"])
+    assert len(result) == 3
+    assert set(result[0]) == {'ass', 'sas', 'ssa'}
+    assert set(result[1]) == {'pool', 'loop'}
+    assert set(result[2]) == {'x'}
+
+
+def test_problem59_1():
+    result = Solution59().generateMatrix(2)
+    assert result == [[1,2], [4,3]]
+
+
+def test_problem59_2():
+    result = Solution59().generateMatrix(3)
+    assert result == [[1,2,3], [8,9,4], [7,6,5]]
